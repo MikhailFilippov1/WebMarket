@@ -3,9 +3,9 @@ package ru.geekbrains.WebMarket.model;
 public class Product {
     Long id;
     String title;
-    int price;
+    float price;
 
-    public Product(Long id, String title, int price) {
+    public Product(Long id, String title, float price) {
         this.id = id;
         this.title = title;
         this.price = price;
@@ -30,11 +30,11 @@ public class Product {
         this.title = title;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 }

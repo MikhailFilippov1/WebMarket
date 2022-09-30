@@ -30,5 +30,5 @@ public class ProductService {
 
     public void deleteProduct(Long id){
         productRepository.deleteProduct(id);
-    }
+    } //Пока не работает см.комментарий
 }

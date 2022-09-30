@@ -13,7 +13,7 @@
     <h2>Информация о продукте</h2>
         <h3 th:text="${'ID: ' + product.id}"></h3>
         <h3 th:text="${'Наименование: ' + product.title}"></h3>
-        <h3 th:text="${'Цена: ' + product.price}"></h3>
+        <h3 th:text="${'Цена (руб. коп.): ' + product.price}"></h3>
     <br>
     <a th:href=@{'/products'} class="btn btn-secondary">В список продуктов</a>
 </div>

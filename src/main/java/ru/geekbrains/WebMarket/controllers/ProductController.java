@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String saveProduct(@RequestParam Long id, @RequestParam String title, @RequestParam int price){
+    public String saveProduct(@RequestParam Long id, @RequestParam String title, @RequestParam float price){
         Product product = new Product(id, title, price);
         productService.saveProduct(product);
         return "redirect:/products";
@@ -45,7 +45,7 @@ public class ProductController {
 
     @GetMapping("/delete_product/{id}") //Пока не пойму, где ошибка:в методе или во front'е
     public String deleteProduct(@RequestParam Long id){
-        System.out.println("!!!!!!!!!");    //Пытаюсь остановит в этой точке, но слетает раньше с ошибкой type=Bad Request, status=400
+        System.out.println("!!!!!!!!!");    //Пытаюсь остановить в этой точке, но слетает раньше с ошибкой type=Bad Request, status=400
         productService.deleteProduct(id);
         return "redirect:/products";
     }

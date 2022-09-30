@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    // GET > http://localhost:8189/market/products
+    // GET > http://localhost:8189/market
     @GetMapping()
     public String showIndexPage(){
         return "index";

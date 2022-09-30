@@ -16,11 +16,11 @@ public class ProductRepository {
     @PostConstruct
     public void init(){
         this.productList = new ArrayList<>(Arrays.asList(
-                new Product(345L, "Хлеб", 45),
-                new Product(24L, "Молоко", 70),
-                new Product(1903L, "Масло", 200),
-                new Product(334L, "Соль", 10),
-                new Product(5L, "Яблоки", 100)
+                new Product(345L, "Хлеб", 45.12f),
+                new Product(24L, "Молоко", 70.45f),
+                new Product(1903L, "Масло", 200.00f),
+                new Product(334L, "Соль", 10.01f),
+                new Product(5L, "Яблоки", 100.56f)
         ));
     }
 
