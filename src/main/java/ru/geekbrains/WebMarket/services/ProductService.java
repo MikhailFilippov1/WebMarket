@@ -28,7 +28,12 @@ public class ProductService {
         productRepository.saveProduct(product);
     }
 
-    public void deleteProduct(Long id){
-        productRepository.deleteProduct(id);
-    } //Пока не работает см.комментарий
+    public boolean deleteProduct(Long id){
+        return productRepository.deleteProduct(id);
+    }
+
+    public void changePrice(Long id, float delta){
+        Product product = productRepository.findById(id);
+        product.setPrice(product.getPrice() + delta);
+    }
 }

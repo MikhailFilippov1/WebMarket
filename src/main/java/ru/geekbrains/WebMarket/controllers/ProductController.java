@@ -1,13 +1,14 @@
 package ru.geekbrains.WebMarket.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.WebMarket.model.Product;
 import ru.geekbrains.WebMarket.services.ProductService;
 
-@Controller
+import java.util.List;
+
+@RestController
 public class ProductController {
 
     private ProductService productService;
@@ -19,16 +20,20 @@ public class ProductController {
 
     // GET > http://localhost:8189/market/products
     @GetMapping("/products")
-    public String showProductsList(Model model){
-        model.addAttribute("products", productService.findAll());
-        return "products.html";
+    public List<Product> showProductsList(){
+        return productService.findAll();
     }
 
     // GET > http://localhost:8189/market/product/{id}
-    @GetMapping("/product/{id}")
-    public String showProduct(Model model, @PathVariable Long id){
-        model.addAttribute("product", productService.findById(id));
-        return "product_info.html";
+//    @GetMapping("/product/{id}")
+//    public String showProduct(Model model, @PathVariable Long id){
+//        model.addAttribute("product", productService.findById(id));
+//        return "product_info.html";
+//    }
+
+    @GetMapping("/product/{productId}")
+    public Product showProduct(@PathVariable Long productId){
+        return productService.findById(productId);
     }
 
     @GetMapping("/create")
@@ -37,16 +42,17 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String saveProduct(@RequestParam Long id, @RequestParam String title, @RequestParam float price){
-        Product product = new Product(id, title, price);
+    public void saveProduct(@RequestBody Product product){
         productService.saveProduct(product);
-        return "redirect:/products";
     }
 
-    @GetMapping("/delete_product/{id}") //Пока не пойму, где ошибка:в методе или во front'е
-    public String deleteProduct(@RequestParam Long id){
-        System.out.println("!!!!!!!!!");    //Пытаюсь остановить в этой точке, но слетает раньше с ошибкой type=Bad Request, status=400
-        productService.deleteProduct(id);
-        return "redirect:/products";
+    @GetMapping("/deleteProduct/json/{productId}")
+    public boolean deleteProduct(@PathVariable Long productId){
+        return productService.deleteProduct(productId);
+    }
+
+    @GetMapping("/product/changePrice")
+    public void changePrice(@RequestParam Long productId, @RequestParam float delta ){
+        productService.changePrice(productId, delta);
     }
 }

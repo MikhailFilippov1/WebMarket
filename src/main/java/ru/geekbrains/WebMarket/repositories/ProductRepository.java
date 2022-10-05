@@ -36,8 +36,7 @@ public class ProductRepository {
         productList.add(product);
     }
 
-    public void deleteProduct(Long id){
-        System.out.println("!!!");
-        productList.removeIf(product -> product.getId().equals(id));
+    public boolean deleteProduct(Long id){
+        return productList.removeIf(product -> product.getId().equals(id));
     }
 }
