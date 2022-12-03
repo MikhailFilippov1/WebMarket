@@ -6,11 +6,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
     <script src="page.js"></script>
-
-
 
 </head>
 <body>
@@ -26,18 +24,18 @@
         </thead>
 
         <tbody>
-        <tr>
-            <td {{ng-bind="product.id"}}></td>
-            <td ng="product.title"></td>
-            <td ng-bind="product.price"></td>
+        <tr ng-model="product">
+            <td ng-model="product.id">{{product.id}}</td>
+            <td ng-model="product.title">{{product.title}}</td>
+            <td ng-model="product.price">{{product.price}}</td>
         </tr>
         </tbody>
     </table>
 
-            <button class="btn btn-secondary">Удалить продукт</button>
+            <button class="btn btn-secondary" ng-click="loadProductById(5)">Удалить/показать продукт</button>
         <br>
         <p></p>
-    <button class="btn btn-secondary">К списку продуктов</button>
+    <a class="btn btn-secondary" href="index.html" role="button">К списку продуктов</a>
 </div>
 </body>
 </html>

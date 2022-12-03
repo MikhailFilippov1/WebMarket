@@ -7,6 +7,8 @@ import ru.geekbrains.WebMarket.repositories.ProductRepository;
 
 import java.util.List;
 
+import static java.lang.Math.abs;
+
 @Service
 public class ProductService {
     private ProductRepository productRepository;
@@ -34,6 +36,11 @@ public class ProductService {
 
     public void changePrice(Long id, float delta){
         Product product = productRepository.findById(id);
-        product.setPrice(product.getPrice() + delta);
+        float tmpPrice = product.getPrice();
+        if(tmpPrice <= abs(delta) && delta < 0){
+            product.setPrice(0);
+        }
+        else
+            product.setPrice(product.getPrice() + delta);
     }
 }

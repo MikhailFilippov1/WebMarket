@@ -36,13 +36,14 @@ public class ProductController {
         return productService.findById(productId);
     }
 
-    @GetMapping("/create")
-    public String showCreateForm(){
-        return "create_product.html";
-    }
+//    @GetMapping("/create")
+//    public String showCreateForm(){
+//        return "create_product.html";
+//    }
 
-    @PostMapping("/create")
-    public void saveProduct(@RequestBody Product product){
+    @GetMapping("/create")
+    public void saveProduct(@RequestParam Long productId, @RequestParam String productTitle, @RequestParam float productPrice){
+        Product product = new Product(productId, productTitle, productPrice);
         productService.saveProduct(product);
     }
 

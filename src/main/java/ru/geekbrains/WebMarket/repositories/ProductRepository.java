@@ -19,7 +19,7 @@ public class ProductRepository {
                 new Product(345L, "Хлеб", 45.12f),
                 new Product(24L, "Молоко", 70.45f),
                 new Product(1903L, "Масло", 200.00f),
-                new Product(334L, "Соль", 10.01f),
+                new Product(334L, "Соль", 5.01f),
                 new Product(5L, "Яблоки", 100.56f)
         ));
     }
