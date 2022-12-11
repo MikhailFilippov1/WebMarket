@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app1">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин "ПЕРЕКРЕСТОК"</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="page.js"></script>
+
+</head>
+<body>
+<div class="container" ng-controller="indexController1">
+    <h1>Информация о продукте</h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Наименование</td>
+            <td>Цена (руб. коп.)</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-model="product">
+            <td ng-model="product.id">{{product.id}}</td>
+            <td ng-model="product.title">{{product.title}}</td>
+            <td ng-model="product.price">{{product.price}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+            <button class="btn btn-secondary" ng-click="loadProductById(5)">Удалить/показать продукт</button>
+        <br>
+        <p></p>
+    <a class="btn btn-secondary" href="index.html" role="button">К списку продуктов</a>
+</div>
+</body>
+</html>

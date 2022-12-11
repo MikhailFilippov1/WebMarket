@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app2">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин "ПЯТЕРОЧКА"</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+    <script src="addProduct.js"></script>
+
+</head>
+<body>
+<div class="container" ng-controller="indexController2">
+    <h2>Добавить продукт</h2>
+    <form name="form" id="form">
+        <div class="form-group">
+             <label>ID продукта</label>
+             <input name="id" type="number" id="productId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Наименование продукта</label>
+            <input name="title" type="text" id="productTitle" class="form-control">
+        </div>
+        <div>
+            <label>Цена продукта (руб.коп.)</label>
+            <input name="price" type="number" id="productPrice" class="form-control">
+        </div>
+        <br>
+        <button class="btn btn-secondary" type="submit" ng-click="addProduct()">Сохранить</button>
+    </form>
+    <a href = "/products"></a>
+</div>
+</body>
+</html>

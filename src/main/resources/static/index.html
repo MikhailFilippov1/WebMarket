@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин "ПЕРЕКРЕСТОК"</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="index.js"></script>
+
+</head>
+<body>
+<div class="container" ng-controller="indexController">
+    <h1>Все продукты</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Наименование</td>
+                <td>Цена (руб. коп.)</td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="p in productList">
+                <td>{{p.id}}</td>
+                <td>{{p.title}}</td>
+                <td>
+                <button class="btn btn-primary" ng-click="changePrice(p.id, -1)">-</button>
+                    {{p.price.toFixed(2)}}
+                <button class="btn btn-primary" ng-click="changePrice(p.id, 1)">+</button>
+                </td>
+                    <td>
+                        <button class="btn btn-secondary" href="/product{{p.id}}" ng-click="loadProductById(p.id)">Информация о продукте</button>
+                        <button class="btn btn-secondary" ng-click="deleteProduct(p.id)">Удалить продукт</button>
+                    </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+ <!--       <span th:text="${'Количество продуктов: ' + products.size()}"/> -->
+        <p></p>
+    <button class="btn btn-secondary">На главную страницу</button>
+        <p></p>
+    <button class="btn btn-secondary">Добавить новый продукт</button>
+</div>
+</body>
+</html>
