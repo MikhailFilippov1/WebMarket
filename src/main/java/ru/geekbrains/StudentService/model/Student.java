@@ -1,18 +1,26 @@
 package ru.geekbrains.StudentService.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "students")
+@Data
+@NoArgsConstructor
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Long id;
+
+    @Column(name = "name")
     String name;
+
+    @Column(name = "age")
     int age;
-
-    public Student(Long id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
-
-    public Student() {
-    }
 
     public Long getId() {
         return id;
